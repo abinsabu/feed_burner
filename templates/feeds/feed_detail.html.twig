@@ -1,0 +1,42 @@
+
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="wrapper">
+        {{ include('side_bar.html.twig') }}
+        <!-- Page Content -->
+
+        <div id="content">
+            <div class="row" style="padding-bottom: 20px;">
+                <a href="{{ path('feeds_list',{id:feeder_id}) }}" class="btn btn-info" role="button">Back</a>
+            </div>
+
+            <div class="row" style="padding-bottom: 20px;">
+
+                {% if feed_rating is empty %}
+                    <input id="input-6" name="input-6" class="rating rating-loading" value="0" data-min="0" data-max="5" data-step="1" data-readonly="true"/>
+                    <a href="{{ path('feed_add_rating',{id:feed_id}) }}" class="btn btn-info" role="button">Rate This</a>
+                {% else %}
+                    Your Rating for this Feed : <input id="input-6" name="input-6" class="rating rating-loading" value="{{ feed_rating }}" data-min="0" data-max="5" data-step="1" readonly />
+                {% endif %}
+            </div>
+            <div class="row">
+                {% if viewFeedData is empty%}
+                    No Records found!
+                {% else %}
+                        {% for key, value in viewFeedData %}
+                              {% if value is empty%}
+                               {% else %}
+                                   <div class="col-md-2 alert alert-success" role="alert">
+                                       <b>{{ key | capitalize}}</b>
+                                   </div>
+                                   <div class="col-md-9 alert alert-info" role="alert">
+                                       {{ value | raw}}
+                                   </div>
+                                   <br/>
+                               {% endif %}
+                        {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

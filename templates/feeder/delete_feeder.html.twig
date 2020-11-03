@@ -1,0 +1,16 @@
+
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="wrapper">
+        {{ include('side_bar.html.twig') }}
+        <!-- Page Content -->
+        <div id="content">
+            <div class="alert alert-success" role="alert">
+                Feeder Data Deleted Successfully!
+            </div>
+            <div class="row" style="padding-bottom: 20px;">
+                <a href="{{ path('feeder_list') }}" class="btn btn-info" role="button">Back</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

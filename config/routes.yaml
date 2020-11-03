@@ -1,0 +1,33 @@
+index:
+    path: /
+    controller: App\Controller\HomeController::dashboard
+dashboard:
+    path: /dashboard
+    controller: App\Controller\HomeController::dashboard
+feeder_list:
+    path: /feeder/list
+    controller: App\Controller\FeederController::list
+add_new_feeder:
+    path: /feeder/add
+    controller: App\Controller\FeederController::add
+feeder_exe:
+    path: /feeder/execute/{id}
+    controller: App\Controller\FeederController::burn
+feeder_edit:
+    path: /feeder/edit/{id}
+    controller: App\Controller\FeederController::edit
+feeder_delete:
+    path: /feeder/delete/{id}
+    controller: App\Controller\FeederController::delete
+feeds_list:
+    path: /feed/list/{id}
+    controller: App\Controller\FeedsController::list
+feed_view:
+    path: /feed/view/{id}
+    controller: App\Controller\FeedsController::detail
+feed_add_rating:
+    path: /feed/add-rating/{id}
+    controller: App\Controller\FeedsController::addRating
+feeds_list_all:
+    path: /feed/list-all/
+    controller: App\Controller\FeedsController::listAll

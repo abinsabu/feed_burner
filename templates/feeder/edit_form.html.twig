@@ -1,0 +1,26 @@
+
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="wrapper">
+        {{ include('side_bar.html.twig') }}
+        <!-- Page Content -->
+        <div id="content">
+            <div class="row" style="padding-bottom: 20px;">
+             <a href="{{ path('feeder_list') }}" class="btn btn-info" role="button">Back</a>
+            </div>
+            {% if is_saved == false %}
+                {% if is_valid_feeder == false %}
+                    <div class="alert  alert-danger" role="alert">
+                        Please check your Feeder URL !
+                    </div>
+                {% endif %}
+                <p class="h4 mb-4">Add New Feeder</p>
+                {{ form(feeder_form) }}
+            {% else %}
+                <div class="alert alert-success" role="alert">
+                    Feeder Data Updated Successfully!
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
